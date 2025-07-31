@@ -13,10 +13,10 @@ let currentTestimonial = 0;
 let isTyping = false;
 let typingIndex = 0;
 const typingTexts = [
-    "Senior Technical Manager & Mobile Developer",
-    "Passionate about innovative mobile solutions",
-    "Creating scalable cross-platform apps",
-    "Building AI-powered mobile systems"
+    "Senior Technical Project Manager | Senior Chief Engineer | Cofounder | PMP",
+    "17+ years of experience at Samsung R&D Institute",
+    "Pioneering execution excellence across global teams",
+    "99.98% on-time delivery rate with zero defects"
 ];
 
 
@@ -29,17 +29,29 @@ function initTheme() {
 }
 
 function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
+    
+    // Add visual feedback
+    if (themeToggle) {
+        themeToggle.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            themeToggle.style.transform = 'scale(1)';
+        }, 150);
+    }
 }
 
 function updateThemeIcon(theme) {
-    const icon = themeToggle.querySelector('i');
-    icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    if (themeToggle) {
+        const icon = themeToggle.querySelector('i');
+        if (icon) {
+            icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        }
+    }
 }
 
 // Navigation
@@ -480,15 +492,39 @@ document.addEventListener('DOMContentLoaded', () => {
     initKeyboardNavigation();
     initPerformanceOptimizations();
     
-    // Theme toggle event listener
-    themeToggle.addEventListener('click', toggleTheme);
+    // Theme toggle event listener - ensure it's properly bound
+    if (themeToggle) {
+        themeToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleTheme();
+        });
+        
+        // Add keyboard shortcut for theme toggle (Ctrl/Cmd + T)
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 't') {
+                e.preventDefault();
+                toggleTheme();
+            }
+        });
+    }
+    
+    // Fallback theme toggle - try to find the button again if it wasn't found initially
+    setTimeout(() => {
+        const fallbackThemeToggle = document.getElementById('theme-toggle');
+        if (fallbackThemeToggle && !themeToggle) {
+            fallbackThemeToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleTheme();
+            });
+        }
+    }, 1000);
     
     // Add smooth scrolling to the whole page
     document.documentElement.style.scrollBehavior = 'smooth';
     
     // Preload critical resources
     const criticalImages = [
-        'https://via.placeholder.com/300x300/4F46E5/FFFFFF?text=Your+Photo',
+        'https://via.placeholder.com/300x300/4F46E5/FFFFFF?text=PKB',
         'https://via.placeholder.com/400x500/4F46E5/FFFFFF?text=Professional+Photo'
     ];
     
@@ -540,4 +576,12 @@ window.PortfolioApp = {
     showNotification,
     toggleTheme,
     initTheme
+};
+
+// Debug function for theme toggle
+window.debugTheme = () => {
+    console.log('Current theme:', document.documentElement.getAttribute('data-theme'));
+    console.log('Theme toggle element:', document.getElementById('theme-toggle'));
+    console.log('Local storage theme:', localStorage.getItem('theme'));
+    console.log('Theme toggle event listeners:', themeToggle ? 'Bound' : 'Not found');
 }; 
