@@ -13,10 +13,10 @@ let currentTestimonial = 0;
 let isTyping = false;
 let typingIndex = 0;
 const typingTexts = [
-    "Full Stack Developer & AI Engineer",
-    "Passionate about innovative solutions",
-    "Creating scalable web applications",
-    "Building AI-powered systems"
+    "Senior Technical Manager & Mobile Developer",
+    "Passionate about innovative mobile solutions",
+    "Creating scalable cross-platform apps",
+    "Building AI-powered mobile systems"
 ];
 
 
