@@ -1,4 +1,4 @@
-// DOM Elements
+// DOM Elements - Cached for performance
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 const themeToggle = document.getElementById('theme-toggle');
@@ -7,20 +7,19 @@ const contactForm = document.getElementById('contact-form');
 const typingText = document.getElementById('typing-text');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
-const testimonialCards = document.querySelectorAll('.testimonial-card');
-const prevBtn = document.getElementById('prev-testimonial');
-const nextBtn = document.getElementById('next-testimonial');
-const dots = document.querySelectorAll('.dot');
 
 // Global Variables
 let currentTestimonial = 0;
 let isTyping = false;
 let typingIndex = 0;
 const typingTexts = [
-    "I build intuitive, user-focused AI solutions.",
-    "I create scalable web applications.",
-    "I solve complex problems with elegant code."
+    "Full Stack Developer & AI Engineer",
+    "Passionate about innovative solutions",
+    "Creating scalable web applications",
+    "Building AI-powered systems"
 ];
+
+
 
 // Theme Management
 function initTheme() {
