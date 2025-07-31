@@ -622,22 +622,24 @@ h4 { font-size: 1.5rem; }
 
 .company-logo {
     position: absolute;
-    top: -15px;
+    top: -20px;
     right: 2rem;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: var(--bg-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow-light);
 }
 
 .company-logo img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.company-logo img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
 }
 
 .achievements {
