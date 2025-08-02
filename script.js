@@ -13,8 +13,8 @@ let currentTestimonial = 0;
 let isTyping = false;
 let typingIndex = 0;
 const typingTexts = [
-    "Senior Technical Project Manager | Senior Chief Engineer | Cofounder | PMP",
-    "17+ years of experience at Samsung R&D Institute",
+    "Senior Chief Engineer | Cofounder | CEO",
+    "16+ years of experience at Samsung R&D Institute",
     "Pioneering execution excellence across global teams",
     "99.98% on-time delivery rate with zero defects"
 ];
