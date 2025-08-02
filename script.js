@@ -14,7 +14,7 @@ let isTyping = false;
 let typingIndex = 0;
 const typingTexts = [
     "Senior Chief Engineer | Cofounder | CEO",
-    "17+ years of experience at Samsung R&D, India & IntuitiveCoder",
+    "17+ years of experience at Samsung R&D Institute, India & IntuitiveCoder",
     "Pioneering execution excellence across global teams",
     "99.98% on-time delivery rate with zero defects"
 ];
